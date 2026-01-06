@@ -1,0 +1,37 @@
+{
+    "version": "1.0.0",
+    "name": "doekos/ls-assess",
+    "description": "a card game with four players",
+    "autoload": {
+        "psr-4": {
+            "Doekos\\LsAssess\\": "src/"
+        }
+    },
+    "require": {
+      "php": "^8.4"
+    },
+    "scripts": {
+      "lint": "pint --preset psr12",
+      "refactor": "rector",
+      "test:lint": "pint --test --preset psr12",
+      "test:unit": "phpunit",
+      "test:types": "phpstan",
+      "test:refactor": "rector --dry-run",
+      "test": [
+        "@test:unit",
+        "@test:lint",
+        "@test:types",
+        "@test:refactor"
+      ],
+      "fix": [
+        "@lint",
+        "@refactor"
+      ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5",
+        "rector/rector": "^2.3",
+        "laravel/pint": "^1.26",
+        "phpstan/phpstan": "^2.1"
+    }
+}
