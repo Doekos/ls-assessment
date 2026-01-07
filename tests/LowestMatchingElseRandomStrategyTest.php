@@ -9,7 +9,7 @@ use Doekos\LsAssess\Enums\Suit;
 use Doekos\LsAssess\Game\Card;
 use Doekos\LsAssess\Game\DefaultRandomizer;
 use Doekos\LsAssess\Game\LowestMatchingElseRandomStrategy;
-use LogicException;
+use Exception;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -71,7 +71,7 @@ final class LowestMatchingElseRandomStrategyTest extends TestCase
     {
         $strategy = new LowestMatchingElseRandomStrategy(new DefaultRandomizer());
 
-        $this->expectException(LogicException::class);
+        $this->expectException(Exception::class);
         $strategy->chooseIndex([], Suit::Spades);
     }
 }

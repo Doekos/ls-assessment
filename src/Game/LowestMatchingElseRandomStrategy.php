@@ -7,7 +7,7 @@ namespace Doekos\LsAssess\Game;
 use Doekos\LsAssess\Enums\Suit;
 use Doekos\LsAssess\Interfaces\PlayStrategy;
 use Doekos\LsAssess\Interfaces\Randomizer;
-use LogicException;
+use Exception;
 
 final readonly class LowestMatchingElseRandomStrategy implements PlayStrategy
 {
@@ -18,12 +18,13 @@ final readonly class LowestMatchingElseRandomStrategy implements PlayStrategy
 
     /**
      * @param list<Card> $hand
+     * @throws Exception
      */
     public function chooseIndex(array $hand, ?Suit $leadSuit): int
     {
         $count = count($hand);
         if ($count === 0) {
-            throw new LogicException('Cannot choose a card from an empty hand.');
+            throw new Exception('Cannot choose a card from an empty hand.');
         }
 
         // Starting player: random card

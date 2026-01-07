@@ -7,6 +7,7 @@ namespace Doekos\LsAssess\Game;
 use Doekos\LsAssess\Enums\Rank;
 use Doekos\LsAssess\Enums\Suit;
 use Doekos\LsAssess\Interfaces\Dealer;
+use RuntimeException;
 
 final class Deck implements Dealer
 {
@@ -38,19 +39,19 @@ final class Deck implements Dealer
     /**
      * @return list<Card>
      *
-     * @throws \RuntimeException
+     * @throws RuntimeException
      */
     public function deal(int $count): array
     {
         if ($count > count($this->cards)) {
-            throw new \RuntimeException('Not enough cards to deal');
+            throw new RuntimeException('Not enough cards to deal');
         }
 
         $dealtCards = [];
         for ($i = 0; $i < $count; $i++) {
             $card = array_pop($this->cards);
             if (! $card instanceof Card) {
-                throw new \RuntimeException('Failed to deal card');
+                throw new RuntimeException('Failed to deal card');
             }
             $dealtCards[] = $card;
         }
