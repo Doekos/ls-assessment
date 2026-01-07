@@ -80,10 +80,6 @@ The following rules and constraints are enforced by the domain model:
 ```bash
 composer install
 ```
-Run CSS:
-```bash
-npm run build
-```
 Run tests:
 ```bash
 composer test
