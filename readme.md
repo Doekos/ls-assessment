@@ -76,7 +76,26 @@ The following rules and constraints are enforced by the domain model:
 
 ## How to Run
 
+## Using Herd
 ```bash
 composer install
 composer test
 php index.php
+```
+
+## Using Docker Compose
+Navigate to the project directory in your terminal and run:
+```
+docker compose build up --build
+```
+Then navigate to http://localhost:8088
+
+Run tests:
+```
+docker compose run --rm app composer test
+```
+
+Run the CLI game:
+```
+docker compose run --rm app php index.php
+```

@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./:/app
+    working_dir: /app
